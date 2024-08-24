@@ -1,0 +1,77 @@
+/* @charset "UTF-8"; */
+.navbar {
+	background-color: #6EACDA;
+	border-radius: 8px;
+	margin-bottom: 20px;
+}
+
+.navbar-brand, .nav-link {
+	color: #ffffff !important;
+}
+
+.navbar-nav .nav-link:hover {
+	color: #dcdcdc !important;
+} 
+.custom-navbarNav {
+	margin-left: auto;
+}
+
+.nav-item {
+	margin-left: 20px;
+}
+
+.navbar-brand {
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.nav-link {
+	font-size: 1.2rem;
+	color: #333;
+}
+
+.container {
+	max-width: 800px; /* Ensure the width matches the form */
+	margin-top: 20px;
+}
+
+.container {
+	max-width: 800px;
+	margin-top: 20px;
+}
+
+.form-container {
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-btn {
+	background-color: #6EACDA !important;
+	border-color: #6EACDA !important;
+	color: #ffffff !important;
+}
+
+.custom-btn:hover {
+	background-color: #5B99C2 !important;
+	border-color: #5B99C2 !important;
+	color: #ffffff !important;
+}
+
+.custom-file-label::after {
+	content: "Browse";
+}
+
+.custom-file-input {
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	padding: 6px 12px;
+	background-color: #ffffff;
+}
+
+.custom-file-input:focus {
+	border-color: #7A1CAC;
+	outline: none;
+	box-shadow: 0 0 0 0.2rem rgba(122, 28, 172, 0.25);
+}

@@ -1,11 +1,17 @@
 package com.ordex.internship.Students;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -25,9 +31,13 @@ public class Students {
 	@Column(name = "Student_field")
 	private String field;
 
-	@ManyToOne
-	@JoinColumn(name = "mentor_id")
-	private Mentors mentors;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "Students_mentors", joinColumns = @JoinColumn(name = "Student_id"), inverseJoinColumns = @JoinColumn(name = "Mentor_id"))
+	private List<Mentors> mentors = new ArrayList<>();
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "project_id")
+	private Projects project;
 
 	public Students() {
 		super();
@@ -84,12 +94,21 @@ public class Students {
 
 	// mentor getters setters
 
-	public Mentors getMentors() {
+	public List<Mentors> getMentors() {
 		return mentors;
 	}
 
-	public void setMentors(Mentors mentors) {
+	public void setMentors(List<Mentors> mentors) {
 		this.mentors = mentors;
 	}
 
+	// project getters and setters
+
+	public Projects getProject() {
+		return project;
+	}
+
+	public void setProject(Projects project) {
+		this.project = project;
+	}
 }

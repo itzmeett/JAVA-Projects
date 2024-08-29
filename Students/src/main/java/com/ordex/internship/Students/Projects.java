@@ -1,5 +1,6 @@
 package com.ordex.internship.Students;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -20,6 +21,9 @@ public class Projects {
 	private int pid;
 	@Column(name = "Project_name")
 	private String pname;
+
+	@OneToMany(mappedBy = "project", cascade=CascadeType.ALL)
+	private List<Students> student = new ArrayList<>();
 
 	public Projects() {
 		super();

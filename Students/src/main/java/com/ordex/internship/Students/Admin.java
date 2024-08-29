@@ -1,12 +1,15 @@
 package com.ordex.internship.Students;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -19,10 +22,9 @@ public class Admin {
 	private int aid;
 	@Column(name = "Admin_name")
 	private String aname;
-//	@Column(name = "Assign_Mentor_to_Student")
-//	private String assign_Mentor;
-	@Column(name = "To_the_Student")
-	private String to_the_student;
+
+//	@OneToMany(mappedBy = "mentor", cascade = CascadeType.ALL)
+//	private List<Students> student = new ArrayList<>();
 
 	public Admin() {
 		super();
@@ -50,11 +52,28 @@ public class Admin {
 		this.aname = aname;
 	}
 
-	public String getAssign_mentor_To_Student() {
-		return to_the_student;
-	}
+	// method for assign a mentors to the students
 
-	public void setAssign_mentor_To_Student(String to_the_student) {
-		this.to_the_student = to_the_student;
+//	public void assignStudents(Students s, Mentors m) {
+//		if (!student.contains(s)) {
+//			System.out.println("Admin need to firstly assign a student");
+//		}
+//		student.getMentor().add(m);
+//		m.getStudent().add(s);
+//	}
+	
+	public void assignStudents(List<Students> students, List<Mentors> mentors) {
+		for (Students student : students) {
+			for (Mentors mentor : mentors) {
+//				if (student.getMentors() == null) {
+//					student.setMentors(new ArrayList<>());
+//				}
+//				if (mentor.getStd() == null) {
+//					mentor.setStd(new ArrayList<>());
+//				}
+				student.getMentors().add(mentor);
+				mentor.getStd().add(student);
+			}
+		}
 	}
 }

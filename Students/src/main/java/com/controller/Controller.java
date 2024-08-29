@@ -75,9 +75,6 @@ public class Controller {
 		
 		// Add Students to Mentor
 		
-		harshsir.assignProject(meet, p1);
-		harshsir.assignProject(dhrumil, p2);
-		shailimam.assignProject(rohan, p3);
 		admin1.assignStudents(studentList1, mentorList1);
 		admin1.assignStudents(List.of(rohan, rahul), List.of(shailimam));
 
@@ -92,11 +89,16 @@ public class Controller {
 			session.persist(p1);
 			session.persist(p2);
 			session.persist(p3);
-			session.persist(harshsir);
+			
+			harshsir.assignProject(meet, p3);
+			harshsir.assignProject(dhrumil, p1);
+			shailimam.assignProject(rohan, p2);
+			
 			session.persist(shailimam);
+			session.persist(harshsir);
 			session.persist(vrajsir);
-			session.persist(admin1);
 			session.persist(rohan);
+			session.persist(admin1);
 			
 			tx.commit();
 		} catch (Exception e) {
